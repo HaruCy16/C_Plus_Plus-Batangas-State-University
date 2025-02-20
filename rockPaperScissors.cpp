@@ -4,22 +4,25 @@
 using namespace std;
 
 int main(){
-    srand(time(0));
-
+    //seed random number generator to make sure that the random number is different every time the program runs
+    srand(time(0)); 
+    
+    //choices for rock, paper, and scissors. Initialization of computer move and user move
     string rock = "rock";
     string paper = "paper";
     string scissors = "scissors";
     string computerMove;
     string userMove;
 
-    char playAgain = 'y';
+    char playAgain = 'y'; //set for play again
 
-    //GAME LOGIC
+    //GAME LOGIC, uses do while loop to make the user play again
     do
     {   
         cout << "Choose, rock, paper, or scissors?" << endl;
     	cin >> userMove;
-    
+        
+        //random move for computer
         int randomMove = rand() % 3 + 1;
         if (randomMove == 1) {
             computerMove = rock;
@@ -78,6 +81,6 @@ int main(){
 
     //EXIT NA
     cout << "================================================================" << endl;
-    cout << "Salamat!" << endl;
+    cout << "Thanks for playing!" << endl;
     return 0;
 }

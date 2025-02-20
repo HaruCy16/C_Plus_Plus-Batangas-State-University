@@ -16,7 +16,7 @@ int main() {
     }
 
     // Convert input to enum
-    difficulty myVar = static_cast<difficulty>(userInput);
+    difficulty myVar = static_cast<difficulty>(userInput);  
 
     // Switch statement with correct enum values
     switch (myVar) {
