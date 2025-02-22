@@ -5,7 +5,7 @@ int main(){
     string name;
     int studentId;
     double quiz1, quiz2, quiz3;
-    double average;
+    double average; 
     const int NUM_QUIZZES = 3;
     int averageScore;
 

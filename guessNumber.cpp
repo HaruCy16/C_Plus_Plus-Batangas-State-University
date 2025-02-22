@@ -8,7 +8,9 @@ int main(){
     //if number < guessNumber then print too low
     //if number == guessNumber then print correct
 
-    int guessNumber = rand() % 100 + 1; 
+    srand(time(0));
+
+    int guessNumber = rand() % 100 + 1;
     int number;
 
     while(number != guessNumber){

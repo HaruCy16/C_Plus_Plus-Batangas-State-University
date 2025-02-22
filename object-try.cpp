@@ -2,11 +2,22 @@
 #include <string>
 using namespace std;
 
-int main(){
-  int num = 5;
-  num += 5;
+class Circle{
+  public:
+    double radius;
 
-  cout << num << endl;
+    double circumference(){
+      return 3.14*radius*radius;
+    }
+};
+
+int main(){
+  Circle obj;
+
+  obj.radius = 5.5;
+
+  cout << obj.radius << endl;
+  cout << obj.circumference();
 
   return 0;
 }
