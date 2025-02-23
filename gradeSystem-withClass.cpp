@@ -1,42 +1,61 @@
-#include <string>
 #include <iostream>
+#include <string>
 using namespace std;
 
-//PARENT
-class Values
-{
+// PARENT CLASS
+class Values {
   protected:
     double quiz1, quiz2, quiz3, average;
+    int averageScore;
 };
 
-//CHILD 1
-class getInfos : public Values
-{
+// CHILD CLASS
+class getInfos : public Values {
   private:
     string name;
     int id;
-    int NUM_QUIZZES = 3;
+    const int NUM_QUIZZES = 3; // Constant should be `const`
 
-    public:
-      void getName(string name, int studentId){
-        name = name;
-        id = studentId;
-
-        cout << "Your name is: " << name << endl;
+  public:
+    void getName() {
+        cout << "Enter your name: ";
         getline(cin, name);
 
-        cout << "Your studentId is: " << id << endl;
+        cout << "Enter your student ID: ";
         cin >> id;
+        cin.ignore(); // Prevents issues with `getline` after `cin`
+    }
 
-        // return name;
-        // return id;
-      }
+    void getQuizScores() {
+        cout << "Enter quiz 1 score: ";
+        cin >> quiz1;
+
+        cout << "Enter quiz 2 score: ";
+        cin >> quiz2;
+
+        cout << "Enter quiz 3 score: ";
+        cin >> quiz3;
+    }
+
+    void getAverage() {
+        average = (quiz1 + quiz2 + quiz3) / NUM_QUIZZES;
+        averageScore = int (average); // Type casting using `static_cast`
+    }
+
+    void displayOutput() {
+        cout << "\nYour name is: " << name << endl;
+        cout << "Your student ID is: " << id << endl;
+        cout << "Your average quiz score is: " << averageScore << endl;
+    }
 };
 
-int main(){
-  int studentId;
-  string name;
-  getInfos info;
+int main() {
+    getInfos info;
 
-  info.getName(name, studentId);
+    info.getName(); // No need for parameters
+    info.getQuizScores();
+    info.getAverage();
+    info.displayOutput();
+
+    return 0;
 }
